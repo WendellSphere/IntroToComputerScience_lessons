@@ -1,0 +1,30 @@
+# Write Python code that assigns to the 
+# variable url a string that is the value 
+# of the first URL that appears in a link 
+# tag in the string page.
+# Your code should print http://udacity.com
+# Make sure that if page were changed to
+
+# page = '<a href="http://udacity.com">Hello world</a>'
+
+# that your code still assigns the same value to the variable 'url', 
+# and therefore still prints the same thing.
+
+# page = contents of a web page
+page =('<div id="top_bin"><div id="top_content" class="width960">'
+'<div class="udacity float-left"><a href="http://udacity.com">')
+start_link = page.find('<a href=')
+
+    #print start_link
+    #print page[89:]
+
+
+start_url = (start_link + 9) #this caculates begining of url
+big_url = page[start_url:]  #this gets us the url plus the ">  and etc after the url
+end_url = big_url.find('">') #this gets us the int value place of the end of the url
+                            # which will help delete "> from url in the following code
+    #print big_url
+    #print end_url
+    
+url = big_url[0:end_url] # in big_url we find url by selceting from 0 up to end_url
+print url
